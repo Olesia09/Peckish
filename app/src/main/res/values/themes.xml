@@ -45,6 +45,14 @@
         <item name="android:shadowRadius">6</item>
     </style>
 
+    <!-- text shadow light -->
+    <style name="text_style_shadow_light" parent="Widget.AppCompat.TextView">
+        <item name="android:shadowColor">@color/orange</item>
+        <item name="android:shadowDx">3</item>
+        <item name="android:shadowDy">3</item>
+        <item name="android:shadowRadius">2</item>
+    </style>
+
     <style name="button_design" parent="Widget.AppCompat.Button">
         <item name="android:background">@drawable/drawer_item_background</item>
     </style>

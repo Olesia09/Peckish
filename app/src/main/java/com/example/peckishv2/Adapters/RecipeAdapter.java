@@ -1,6 +1,7 @@
 package com.example.peckishv2.Adapters;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -10,26 +11,37 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.peckishv2.Models.Recipe;
 import com.example.peckishv2.R;
+import com.squareup.picasso.Picasso;
+
+import java.util.List;
 
 public class RecipeAdapter  extends RecyclerView.Adapter<RecipeViewHolder>{
     Context context;
     List<Recipe> list;
 
+    public RecipeAdapter(Context context, List<Recipe> list) {
+        this.context = context;
+        this.list = list;
+    }
+
     @NonNull
     @Override
     public RecipeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        return new RecipeViewHolder(LayoutInflater.from(context).inflate(R.layout.display_recipe, parent, false));
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecipeViewHolder holder, int position) {
-
+        holder.recipe_title.setText(list.get(position).title);
+        holder.recipe_title.setSelected(true);
+        Picasso.get().load(list.get(position).image).into(holder.recipe_image);
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return list.size();
     }
 }
 

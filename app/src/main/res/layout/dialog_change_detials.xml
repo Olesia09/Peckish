@@ -1,6 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:background="@color/dark"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/change_details_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+
+        android:text="@string/change_details_txt"
+        android:textColor="@color/yellow"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        style="@style/text_style_shadow_light"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/change_username"
+        style="@style/editText_outline_round"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+
+        android:autofillHints="username"
+        android:hint="@string/new_username"
+        android:inputType="textPersonName"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/change_details_title" />
+
+    <EditText
+        android:id="@+id/change_password"
+        style="@style/editText_outline_round"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+
+        android:autofillHints="password"
+        android:hint="@string/new_password"
+        android:inputType="textPassword"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/change_username" />
+
+    <EditText
+        android:id="@+id/change_email"
+        style="@style/editText_outline_round"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+
+        android:autofillHints="email"
+        android:hint="@string/new_email"
+        android:inputType="textEmailAddress"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/change_password" />
+
+    <EditText
+        android:id="@+id/confirm_current_pass"
+        style="@style/editText_outline_round"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+
+        android:layout_marginBottom="32dp"
+        android:autofillHints="password"
+
+        android:hint="@string/current_pass"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/change_details_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/change_email" />
+
+    <ImageButton
+        android:id="@+id/change_details_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/submit_change_details"
+
+        android:src="@drawable/next_arrow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

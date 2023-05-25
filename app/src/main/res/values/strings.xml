@@ -64,6 +64,7 @@
     <string name="btn11_desc">soy bean</string>
     <string name="btn12_desc">eggs</string>
 
+    <!-- navigation drawer -->
     <string name="edit_profile">Edit Profile</string>
     <string name="edit_diet_preferences">edit diet preferences</string>
     <string name="edit_preferences">Edit Preferences</string>
@@ -74,6 +75,23 @@
     <string name="log_out_desc">log out and go back to app login page</string>
     <string name="log_out_txt">Log out</string>
     <string name="edit_profile_desc">Go to change details page</string>
+
+    <!-- about us dialog -->
+    <string name="about_us_title">About us</string>
+    <string name="exit_about_us_dialog">Exit about us dialog</string>
+    <string name="about_us_para">Welcome to our recipe finder! A solution to all your hungry, mouthwatering problems. Our little "Narnia-within-a-fridge" app helps you find some delicious recipes with whatever you can find in… well… your fridge!
+
+        We were once just like you, hungry out of our minds with just some left over veggies, spices, half a box of pasta and no ideas what to cook. So what did we do instead? That\'s right, we made this app instead in hopes of it telling us what to make. And it works!
+
+        With the help of our ever-growing recipe list and easy to read, step by step guides, you can make your very own yummy meal whether you're running late for work or up for a cook-off day. Happy cooking!</string>
+
+   <!-- change details dialog -->
+    <string name="change_details_txt">Edit Your Profile</string>
+    <string name="new_username">New Username…</string>
+    <string name="new_password">New Password…</string>
+    <string name="new_email">New email…</string>
+    <string name="current_pass">Current password…</string>
+    <string name="submit_change_details">Submit changed details</string>
 
 
 </resources>

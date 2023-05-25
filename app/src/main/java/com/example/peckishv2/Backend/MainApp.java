@@ -81,20 +81,20 @@ public class MainApp extends AppCompatActivity {
         //edit profile dialog
         change_profile_dialog = new Dialog(this);
         change_profile_dialog.setContentView(R.layout.dialog_change_detials);
-        change_profile_dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.dialog_box));
+        change_profile_dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.dialog_box_mainapp));
         change_profile_dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
 
         //general settings dialog
         general_settings_dialog = new Dialog(this);
         general_settings_dialog.setContentView(R.layout.dialog_general_settings);
-        general_settings_dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.dialog_box));
+        general_settings_dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.dialog_box_mainapp));
         general_settings_dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
         //about us dialog
         about_us_dialog = new Dialog(this);
         about_us_dialog.setContentView(R.layout.dialog_about_us);
-        about_us_dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.dialog_box));
+        about_us_dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.dialog_box_mainapp));
         about_us_dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
     }
     //closes in case of pressing on back arrow of the system
