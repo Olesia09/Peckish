@@ -2,7 +2,7 @@ package com.example.peckishv2.Models;
 
 import java.util.ArrayList;
 
-public class Result{
+public class Recipe{
     public boolean vegetarian;
     public boolean vegan;
     public boolean glutenFree;
