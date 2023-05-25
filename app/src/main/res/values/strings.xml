@@ -1,0 +1,79 @@
+<resources>
+    <string name="app_name">Peckish</string>
+    <string name="api_key">d92e7e4dd931499cb0adf0cfeb3d9e35</string>
+
+    <!-- Login page -->
+    <string name="subtitle">A world of recipes within your fridge</string>
+    <string name="peckish_logo">Peckish logo</string>
+    <string name="emailHint">Email…</string>
+    <string name="register">Register</string>
+    <string name="sign_in">Sign in</string>
+    <string name="sign_in_desc">Sign in using created account</string>
+    <string name="register_desc">Register a new account</string>
+    <string name="login_subtext">Have an account?</string>
+    <string name="passwordHint">Password…</string>
+
+    <!-- Username popup fragment -->
+    <string name="username_prompt">Username…</string>
+    <string name="username_text">What should we call you?</string>
+    <string name="dialog_continue_btn_desc">continue to home page</string>
+    <string name="title_activity_sign_in">Sign_in</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in_short">Sign in</string>
+
+    <!-- Loading screen -->
+    <string name="loadingScreen_subtitle">Like Narnia in your fridge</string>
+
+    <!-- toolbar-->
+    <string name="profile_desc">user profile</string>
+    <string name="help_desc">page guide</string>
+    <string name="recipes_icon_title">Recipes</string>
+    <string name="fridge_icon_title">My fridge</string>
+    <string name="shopping_icon_title">Shopping</string>
+
+    <!-- Preferences page -->
+    <string name="skip_btn">skip</string>
+    <string name="allergens_intolerances_title">Allergens/ Intolerances</string>
+    <string name="diet_title">Select Your Diet</string>
+    <string name="continue_btn_desc">Continue to home page</string>
+    <string name="continue_btn_text">Continue</string>
+    <string name="item1_btn">Vegetarian</string>
+    <string name="item2_btn">Vegan</string>
+    <string name="item3_btn">Pescatarian</string>
+    <string name="item4_btn">Paleo</string>
+    <string name="item5_btn">Keto</string>
+    <string name="item6_btn">None</string>
+    <string name="item7_btn">Gluten</string>
+    <string name="item8_btn">Dairy</string>
+    <string name="item9_btn">Nuts</string>
+    <string name="item10_btn">Shellfish</string>
+    <string name="item11_btn">Soy</string>
+    <string name="item12_btn">Egg</string>
+
+    <string name="btn1_dec">lettuce</string>
+    <string name="btn2_desc">fruit</string>
+    <string name="btn3_desc">fish</string>
+    <string name="btn4_desc">natural food</string>
+    <string name="btn5_btn">natural fat food</string>
+    <string name="btn6_desc">meat</string>
+    <string name="btn7_desc">wheat</string>
+    <string name="btn8_desc">milk</string>
+    <string name="btn9_desc">walnut</string>
+    <string name="btn10_desc">prawn</string>
+    <string name="btn11_desc">soy bean</string>
+    <string name="btn12_desc">eggs</string>
+
+    <string name="edit_profile">Edit Profile</string>
+    <string name="edit_diet_preferences">edit diet preferences</string>
+    <string name="edit_preferences">Edit Preferences</string>
+    <string name="general_setting">go to general setting page</string>
+    <string name="general_settings_txt">General Settings</string>
+    <string name="about_us">go to about us page</string>
+    <string name="about_us_txt">About Us</string>
+    <string name="log_out_desc">log out and go back to app login page</string>
+    <string name="log_out_txt">Log out</string>
+    <string name="edit_profile_desc">Go to change details page</string>
+
+
+</resources>

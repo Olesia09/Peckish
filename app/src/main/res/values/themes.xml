@@ -1,0 +1,51 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Theme.Peckish" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primary_darker</item>
+        <item name="colorOnPrimary">@color/orange</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorSecondaryVariant">@color/yellow</item>
+        <item name="colorOnSecondary">@color/dark</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@color/primary</item>
+        <item name="actionMenuTextColor">@color/yellow</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+    </style>
+
+    <!-- SplashScreen -->
+    <style name="SplashScreen" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@color/peckish_logo_background</item>
+        <item name="icon">@mipmap/peckish_logo_foreground</item>
+    </style>
+
+    <!-- edittext outline -->
+    <style name="editText_outline_round" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@drawable/edit_text_round_outline</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:textColor">@color/yellow</item>
+        <item name="android:textColorHint">@color/white</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <!-- dialog box -->
+    <style name="dialog_box" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowBackground">@null</item>
+    </style>
+
+    <!-- text shadow -->
+    <style name="text_style_shadow" parent="Widget.AppCompat.TextView">
+        <item name="android:shadowColor">@color/dark</item>
+        <item name="android:shadowDx">3</item>
+        <item name="android:shadowDy">3</item>
+        <item name="android:shadowRadius">6</item>
+    </style>
+
+    <style name="button_design" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/drawer_item_background</item>
+    </style>
+</resources>

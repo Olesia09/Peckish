@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/orange"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/sign_in_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+
+        android:text="@string/sign_in"
+        android:textColor="@color/yellow"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        style="@style/text_style_shadow"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/sign_in_username"
+        style="@style/editText_outline_round"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+
+        android:autofillHints="username"
+        android:hint="@string/username_prompt"
+        android:inputType="textPersonName"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sign_in_title" />
+
+    <EditText
+        android:id="@+id/sign_in_password"
+        style="@style/editText_outline_round"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+
+        android:autofillHints="password"
+        android:hint="@string/passwordHint"
+        android:inputType="textPassword"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sign_in_username" />
+
+    <ImageButton
+        android:id="@+id/sign_in_submit_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+
+        android:contentDescription="@string/dialog_continue_btn_desc"
+        android:src="@drawable/next_arrow"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sign_in_password" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

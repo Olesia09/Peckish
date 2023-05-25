@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home_page"
+        android:icon="@drawable/fridge"
+        android:title="@string/fridge_icon_title" />
+
+    <item
+        android:id="@+id/search_recipe"
+        android:icon="@drawable/book"
+        android:title="@string/recipes_icon_title" />
+
+    <item
+        android:id="@+id/shopping_list"
+        android:icon="@drawable/cart"
+        android:title="@string/shopping_icon_title" />
+</menu>
