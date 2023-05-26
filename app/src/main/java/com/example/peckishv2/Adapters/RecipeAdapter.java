@@ -33,10 +33,10 @@ public class RecipeAdapter  extends RecyclerView.Adapter<RecipeViewHolder>{
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecipeViewHolder holder, int position) {
-        holder.recipe_title.setText(list.get(position).title);
+    public void onBindViewHolder(@NonNull RecipeViewHolder holder, int pos) {
+        holder.recipe_title.setText(list.get(pos).title);
         holder.recipe_title.setSelected(true);
-        Picasso.get().load(list.get(position).image).into(holder.recipe_image);
+        Picasso.get().load(list.get(pos).image).into(holder.recipe_image);
     }
 
     @Override

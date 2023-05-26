@@ -93,12 +93,20 @@
     <string name="current_pass">Current password…</string>
     <string name="submit_change_details">Submit changed details</string>
     <string name="dismiss_the_tutorial_dialog">Dismiss the tutorial dialog</string>
+
+    <!-- help dialog -->
     <string name="Tutorial_title">Tutorial</string>
     <string name="tutorial_text">1. Search for ingredients you have either by category or manually.
 
         2. Click on recipe icon to search for recipes. Filter by type or search manually. Press to open the recipe, save and find it the next time you cook.
 
         3. Make a shopping list for your next trip to the store by clicking on the cart icon.</string>
+
+    <!-- shopping list page -->
+    <string name="my_shopping_list">My Shopping List</string>
+    <string name="add_btn_desc">Add an ingredient to the shopping list</string>
+    <string name="add_item">Add item…</string>
+    <string name="submit_ingredient">Submit an ingredient to your shopping list</string>
 
 
 </resources>
