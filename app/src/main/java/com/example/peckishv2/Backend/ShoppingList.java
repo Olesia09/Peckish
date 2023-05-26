@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -49,13 +50,10 @@ public class ShoppingList extends Fragment implements DialogCloseListener{
         add_ingredient_adapter.setItem(ingredient_list);
 
         btn = btn.findViewById(R.id.add_item);
+        btn.setOnClickListener(v -> AddShoppingItem.newInstance().show(requireActivity().getSupportFragmentManager(), AddShoppingItem.tag));
 
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AddShoppingItem.newInstance().show(requireActivity().getSupportFragmentManager(), AddShoppingItem.tag);
-            }
-        });
+        ItemTouchHelper helper = new ItemTouchHelper(new RecyclerItemTouchManager(add_ingredient_adapter));
+        helper.attachToRecyclerView(toBuy_listView);
 
         return inflater.inflate(R.layout.fragment_shopping_list,container,false);
     }

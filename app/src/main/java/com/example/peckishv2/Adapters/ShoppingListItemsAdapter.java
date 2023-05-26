@@ -76,9 +76,6 @@ public class ShoppingListItemsAdapter extends RecyclerView.Adapter<ShoppingListI
         return shoppingList.requireContext();
     }
 
-    public  void deleteItem(int pos){
-        ShoppingListItems item = ingredientList.get(pos);
-    }
     public void editItem(int pos)
     {
         ShoppingListItems item = ingredientList.get(pos);
