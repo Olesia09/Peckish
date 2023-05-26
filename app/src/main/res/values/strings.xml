@@ -92,6 +92,13 @@
     <string name="new_email">New email…</string>
     <string name="current_pass">Current password…</string>
     <string name="submit_change_details">Submit changed details</string>
+    <string name="dismiss_the_tutorial_dialog">Dismiss the tutorial dialog</string>
+    <string name="Tutorial_title">Tutorial</string>
+    <string name="tutorial_text">1. Search for ingredients you have either by category or manually.
+
+        2. Click on recipe icon to search for recipes. Filter by type or search manually. Press to open the recipe, save and find it the next time you cook.
+
+        3. Make a shopping list for your next trip to the store by clicking on the cart icon.</string>
 
 
 </resources>
