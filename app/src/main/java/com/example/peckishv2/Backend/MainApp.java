@@ -22,7 +22,7 @@ import com.example.peckishv2.databinding.ActivityMainAppBinding;
 public class MainApp extends AppCompatActivity {
 
     ActivityMainAppBinding binding;
-    ImageButton user_profile, preferences, about_us, change_profile, logout, help_btn;
+    ImageButton user_profile, preferences, about_us, change_profile, logout, help_btn, about_us_back, change_details_submit, help_back;
     DrawerLayout drawerLayout;
     Toolbar tool_bar;
     Dialog about_us_dialog, change_profile_dialog, help_dialog;
@@ -64,6 +64,9 @@ public class MainApp extends AppCompatActivity {
         change_profile = findViewById(R.id.change_profile);
         logout = findViewById(R.id.log_out);
         help_btn = findViewById(R.id.help_btn);
+        about_us_back = findViewById(R.id.about_us_return);
+        change_details_submit = findViewById(R.id.change_details_btn);
+        help_back = findViewById(R.id.exit_tutorial);
 
         //setting up the custom tool bar
         setSupportActionBar(tool_bar);

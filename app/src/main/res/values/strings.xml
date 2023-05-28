@@ -81,9 +81,7 @@
     <string name="exit_about_us_dialog">Exit about us dialog</string>
     <string name="about_us_para">Welcome to our recipe finder! A solution to all your hungry, mouthwatering problems. Our little "Narnia-within-a-fridge" app helps you find some delicious recipes with whatever you can find in… well… your fridge!
 
-        We were once just like you, hungry out of our minds with just some left over veggies, spices, half a box of pasta and no ideas what to cook. So what did we do instead? That\'s right, we made this app instead in hopes of it telling us what to make. And it works!
-
-        With the help of our ever-growing recipe list and easy to read, step by step guides, you can make your very own yummy meal whether you're running late for work or up for a cook-off day. Happy cooking!</string>
+        We were once just like you, hungry out of our minds with just some left over veggies, spices, half a box of pasta and no ideas what to cook.</string>
 
    <!-- change details dialog -->
     <string name="change_details_txt">Edit Your Profile</string>

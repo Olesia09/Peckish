@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.peckishv2.Adapters.RecipeAdapter;
+//import com.example.peckishv2.Adapters.RecipeAdapter;
 import com.example.peckishv2.Listeners.RecipeListener;
 import com.example.peckishv2.Models.RecipeResponse;
 import com.example.peckishv2.R;
@@ -19,19 +19,19 @@ import org.jetbrains.annotations.Nullable;
 public class SearchRecipe extends Fragment {
 
     RequestManager manager;
-    RecipeAdapter recipeAdapter;
+  //  RecipeAdapter recipeAdapter;
     RecyclerView recyclerView;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstancesState)
     {
-        manager = new RequestManager(requireContext());
-        manager.getRecipe(recipeListener);
+       // manager = new RequestManager(requireContext());
+       // manager.getRecipe(recipeListener);
         return inflater.inflate(R.layout.fragment_search_recipe,container,false);
 
     }
-
+/*
     private final RecipeListener recipeListener = new RecipeListener() {
         @Override
         public void fetch(RecipeResponse result, String message) {
@@ -50,5 +50,5 @@ public class SearchRecipe extends Fragment {
         public void error(String message) {
             Toast.makeText(requireContext(), "message", Toast.LENGTH_SHORT).show();
         }
-    };
+    };*/
 }

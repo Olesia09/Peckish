@@ -34,9 +34,10 @@ public class ShoppingList extends Fragment implements DialogCloseListener{
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstancesState)
-    {
-        toBuy_listView = toBuy_listView.findViewById(R.id.recyclerView);
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_shopping_list, container, false);
+
+        toBuy_listView = view.findViewById(R.id.recyclerView);
         toBuy_listView.setLayoutManager(new LinearLayoutManager(requireContext()));
         ingredient_list = new ArrayList<>();
         db = new DataBaseManager(requireContext());
@@ -49,13 +50,13 @@ public class ShoppingList extends Fragment implements DialogCloseListener{
         Collections.reverse(ingredient_list);
         add_ingredient_adapter.setItem(ingredient_list);
 
-        btn = btn.findViewById(R.id.add_item);
+        btn = view.findViewById(R.id.add_item);
         btn.setOnClickListener(v -> AddShoppingItem.newInstance().show(requireActivity().getSupportFragmentManager(), AddShoppingItem.tag));
 
         ItemTouchHelper helper = new ItemTouchHelper(new RecyclerItemTouchManager(add_ingredient_adapter));
         helper.attachToRecyclerView(toBuy_listView);
 
-        return inflater.inflate(R.layout.fragment_shopping_list,container,false);
+        return view;
     }
 
     @Override
