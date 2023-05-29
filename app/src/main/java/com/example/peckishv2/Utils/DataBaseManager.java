@@ -20,8 +20,8 @@ public class DataBaseManager extends SQLiteOpenHelper {
     private static final String ID = "id";
     private static final String Item_ingredient = "item_ingredient";
     private static final String Status = "status";
-    private static final String create_new_table = "create table " + list_table + "(" + ID + " integer primary key autoincrement, " +
-            Item_ingredient + "text, " + Status + " integer)";
+    private static final String create_new_table = "CREATE TABLE " + list_table + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            Item_ingredient + " TEXT, " + Status + " INTEGER)";
 
     private SQLiteDatabase db;
     public DataBaseManager(Context context)
@@ -40,7 +40,7 @@ public class DataBaseManager extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
     {
         //Drop old table
-        db.execSQL("drop table if exists " + list_table);
+        db.execSQL("DROP TABLE IF EXISTS " + list_table);
 
         //create new
         onCreate(db);
@@ -56,7 +56,7 @@ public class DataBaseManager extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(Item_ingredient, items.getIngredient());
         values.put(Status, 0);
-        db.insert(create_new_table, null, values);
+        db.insert(list_table, null, values);
     }
 
     @SuppressLint("Range")
@@ -66,7 +66,7 @@ public class DataBaseManager extends SQLiteOpenHelper {
         Cursor cursor = null;
         db.beginTransaction();
 
-        try{
+            try{
             cursor = db.query(list_table, null, null, null, null, null, null, null);
             if(cursor != null)
             {
@@ -83,6 +83,7 @@ public class DataBaseManager extends SQLiteOpenHelper {
             }
         }finally {
             db.endTransaction();
+            assert cursor != null;
             cursor.close();
         }
         return itemsList;

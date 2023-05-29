@@ -18,7 +18,7 @@
         <CheckBox
             android:id="@+id/to_buy_check"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:background="@color/primary"
             android:buttonTint="@color/dark"
             android:padding="2dp"

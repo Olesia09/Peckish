@@ -2,11 +2,11 @@ package com.example.peckishv2.Adapters;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -32,21 +32,27 @@ public class ShoppingListItemsAdapter extends RecyclerView.Adapter<ShoppingListI
         this.shoppingList = shoppingList;
     }
 
-    public void onBindViewHolder(ViewHolder holder, int pos)
+    @NonNull
+    @Override
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
+    {
+        View item = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_shopping_list_item, parent, false);
+        return new ViewHolder(item);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull final ViewHolder holder, int pos)
     {
         db.openDB();
-        ShoppingListItems shoppingListItems = ingredientList.get(pos);
+        final ShoppingListItems shoppingListItems = ingredientList.get(pos);
         holder.item.setText(shoppingListItems.getIngredient());
         holder.item.setChecked(toBool(shoppingListItems.getStatus()));
-        holder.item.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
-                    db.updateStatus(shoppingListItems.getId(), 1);
-                }
-                else{
-                    db.updateStatus(shoppingListItems.getId(), 0);
-                }
+        holder.item.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if(isChecked){
+                db.updateStatus(shoppingListItems.getId(), 1);
+            }
+            else{
+                db.updateStatus(shoppingListItems.getId(), 0);
             }
         });
     }
@@ -64,16 +70,6 @@ public class ShoppingListItemsAdapter extends RecyclerView.Adapter<ShoppingListI
     {
         this.ingredientList = ingredientList;
         notifyDataSetChanged();
-    }
-
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
-    {
-        View item = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_shopping_list_item, parent, false);
-        return new ViewHolder(item);
-    }
-
-    public Context getContext(){
-        return shoppingList.requireContext();
     }
 
     public void editItem(int pos)

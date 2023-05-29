@@ -1,5 +1,8 @@
 package com.example.peckishv2.Backend;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,13 +20,13 @@ public class RecyclerItemTouchManager extends ItemTouchHelper.SimpleCallback {
     }
 
     @Override
-    public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder holder, RecyclerView.ViewHolder target)
+    public boolean onMove(@NonNull RecyclerView recyclerView,@NonNull RecyclerView.ViewHolder holder,@NonNull RecyclerView.ViewHolder target)
     {
         return false;
     }
 
     @Override
-    public void onSwiped(final RecyclerView.ViewHolder holder, int dir)
+    public void onSwiped(@NonNull final RecyclerView.ViewHolder holder, int dir)
     {
         final int pos = holder.getAbsoluteAdapterPosition();
         if(dir == ItemTouchHelper.LEFT)

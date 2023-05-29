@@ -29,7 +29,7 @@ public class RequestManager
     public void getRecipe(RecipeListener listener)
     {
         CallRecipe callRecipe = retrofit.create(CallRecipe.class);
-        Call<RecipeResponse> call = callRecipe.callRecipe(context.getString(R.string.api_key), "10");
+        Call<RecipeResponse> call = callRecipe.callRecipe( context.getString(R.string.api_key), "10");
         call.enqueue(new Callback<RecipeResponse>() {
             @Override
             public void onResponse(Call<RecipeResponse> call, Response<RecipeResponse> response) {

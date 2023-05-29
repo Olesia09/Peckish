@@ -32,29 +32,31 @@ public class ShoppingList extends Fragment implements DialogCloseListener{
     List<ShoppingListItems> ingredient_list;
     DataBaseManager db;
 
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_shopping_list, container, false);
 
-        toBuy_listView = view.findViewById(R.id.recyclerView);
-        toBuy_listView.setLayoutManager(new LinearLayoutManager(requireContext()));
-        ingredient_list = new ArrayList<>();
+
         db = new DataBaseManager(requireContext());
         db.openDB();
 
+        toBuy_listView = view.findViewById(R.id.recyclerView);
+        toBuy_listView.setLayoutManager(new LinearLayoutManager(requireContext()));
         add_ingredient_adapter = new ShoppingListItemsAdapter(db, this);
         toBuy_listView.setAdapter(add_ingredient_adapter);
 
-        ingredient_list = db.getAllItems();
-        Collections.reverse(ingredient_list);
-        add_ingredient_adapter.setItem(ingredient_list);
-
-        btn = view.findViewById(R.id.add_item);
-        btn.setOnClickListener(v -> AddShoppingItem.newInstance().show(requireActivity().getSupportFragmentManager(), AddShoppingItem.tag));
-
         ItemTouchHelper helper = new ItemTouchHelper(new RecyclerItemTouchManager(add_ingredient_adapter));
         helper.attachToRecyclerView(toBuy_listView);
+
+        btn = view.findViewById(R.id.add_item);
+
+        ingredient_list = db.getAllItems();
+        Collections.reverse(ingredient_list);
+
+        add_ingredient_adapter.setItem(ingredient_list);
+        btn.setOnClickListener(v -> AddShoppingItem.newInstance().show(requireActivity().getSupportFragmentManager(), AddShoppingItem.tag));
 
         return view;
     }
@@ -67,4 +69,5 @@ public class ShoppingList extends Fragment implements DialogCloseListener{
         add_ingredient_adapter.setItem(ingredient_list);
         add_ingredient_adapter.notifyDataSetChanged();
     }
+
 }
