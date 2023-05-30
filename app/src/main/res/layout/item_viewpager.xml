@@ -42,6 +42,21 @@
                 android:textColor="@color/orange"
                 android:textSize="24sp" />
 
+            <TextView
+                android:id="@+id/prepare_time"
+                style="@style/text_style_shadow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/recipe_image"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="16dp"
+                android:padding="2dp"
+                android:text="10 min"
+                android:textColor="@color/orange"
+                android:textStyle="bold"
+                app:drawableTopCompat="@drawable/time" />
+
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>

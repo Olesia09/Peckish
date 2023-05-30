@@ -113,6 +113,8 @@
     <string name="pageviewer2_desc">swipe to look through saved recipes</string>
     <string name="saved_recipes">Saved Recipes</string>
     <string name="a_suggested_recipe">a suggested recipe</string>
+    <string name="prepare_time_desc">prepare time</string>
+    <string name="ingredient">ingredient</string>
 
 
 </resources>

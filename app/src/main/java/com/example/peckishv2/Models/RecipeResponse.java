@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import retrofit2.Response;
 
-public class RecipeResponse {
+public class  RecipeResponse {
     public ArrayList<Recipe> recipes;
     public int totalResults;
 }

@@ -6,16 +6,19 @@ import android.os.Bundle;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.peckishv2.R;
+import com.example.peckishv2.Utils.LoginDBHelper;
 
 public class Login extends AppCompatActivity {
     EditText uEmail, uPassword, uUsername, signIn_username, signIn_password;
     ImageButton uRegisterBtn, uSignInBtn, uSubmit, signIn_submit;
     Dialog userPrompt, signIn;
     String newUsername, newPassword, newEmail, signIn_username_input, singIn_password_input;
+    LoginDBHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +30,8 @@ public class Login extends AppCompatActivity {
         uPassword=findViewById(R.id.password);
         uRegisterBtn=findViewById(R.id.register_btn);
         uSignInBtn=findViewById(R.id.sign_in_btn);
+
+        dbHelper = new LoginDBHelper(this);
 
         //register action
         uRegisterBtn.setOnClickListener(v -> {
@@ -49,7 +54,7 @@ public class Login extends AppCompatActivity {
 
         uSubmit.setOnClickListener(v -> {
             newUsername = uUsername.getText().toString();
-            checkUsername(newUsername);
+            checkUsernameAndRegister(newUsername, newPassword, newEmail);
         });
 
         //sign in dialog
@@ -65,7 +70,8 @@ public class Login extends AppCompatActivity {
         signIn_submit.setOnClickListener(v -> {
             signIn_username_input = signIn_username.getText().toString();
             singIn_password_input = signIn_password.getText().toString();
-            signIn.dismiss();
+
+            confirmUserAndSignIn(signIn_username_input, singIn_password_input);
         });
     }
 
@@ -83,7 +89,7 @@ public class Login extends AppCompatActivity {
             userPrompt.show();
        }
     }
-    private void checkUsername(String username) {
+    private void checkUsernameAndRegister(String username, String password, String email) {
         if(username.isEmpty()){
             error(uUsername, "Invalid Username");
         }
@@ -93,8 +99,55 @@ public class Login extends AppCompatActivity {
         }
         else
         {
-            userPrompt.dismiss();
-            startActivity(new Intent(Login.this, LoadingScreen.class));
+            boolean check = dbHelper.checkUsername(username);
+            if(!check)
+            {
+                boolean insert = dbHelper.insert(username, password, email);
+                if (insert)
+                {
+                    Toast.makeText(Login.this,"Registered", Toast.LENGTH_SHORT).show();
+
+                    userPrompt.dismiss();
+                    startActivity(new Intent(Login.this, LoadingScreen.class));
+                }
+                else
+                {
+                    Toast.makeText(Login.this,"Register failed", Toast.LENGTH_SHORT).show();
+                }
+            }
+            else
+            {
+                Toast.makeText(Login.this,"User exists, please sign in", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    private void confirmUserAndSignIn(String username, String password) {
+        if(username.isEmpty()){
+            error(signIn_username, "Invalid Username");
+        }
+        else if (username.length()<2)
+        {
+            error(signIn_username, "Username must have at least 2 characters");
+        }
+        else if (password.isEmpty() || password.length()<7)
+        {
+            error(signIn_password, "Password must have at least 7 characters");
+        }
+        else
+        {
+            boolean check = dbHelper.checkUsernamePassword(username, password);
+            if(check)
+            {
+                Toast.makeText(Login.this,"Signed in!", Toast.LENGTH_SHORT).show();
+
+                userPrompt.dismiss();
+                startActivity(new Intent(Login.this, LoadingScreen.class));
+            }
+            else
+            {
+                Toast.makeText(Login.this,"Incorrect Credentials", Toast.LENGTH_SHORT).show();
+            }
         }
     }
     private void error(EditText userInput, String text){

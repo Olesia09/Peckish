@@ -1,5 +1,6 @@
 package com.example.peckishv2.Adapters;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,18 +10,21 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.peckishv2.Backend.ViewPagerItem;
+import com.example.peckishv2.Models.Recipe;
 import com.example.peckishv2.R;
+import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class ViewPagerAdapter extends RecyclerView.Adapter<ViewPagerAdapter.ViewHolder>{
+    Context context;
+    List<Recipe> list;
 
-    ArrayList<ViewPagerItem> viewPagerItemsList;
-
-    public ViewPagerAdapter(ArrayList<ViewPagerItem> viewPagerItemsList) {
-        this.viewPagerItemsList = viewPagerItemsList;
+    public ViewPagerAdapter(Context context, List<Recipe> list) {
+        this.context = context;
+        this.list = list;
     }
+
 
     @NonNull
     @Override
@@ -34,22 +38,22 @@ public class ViewPagerAdapter extends RecyclerView.Adapter<ViewPagerAdapter.View
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        ViewPagerItem viewPagerItem = viewPagerItemsList.get(position);
-
-        holder.image.setImageResource(viewPagerItem.image_id);
-        holder.recipe_header.setText(viewPagerItem.heading);
+        Picasso.get().load(list.get(position).image).into(holder.image);
+        holder.recipe_header.setText(list.get(position).title);
+        holder.recipe_header.setSelected(true);
+        holder.prepare_time.setText(list.get(position).readyInMinutes + " Min");
 
     }
 
     @Override
     public int getItemCount() {
-        return viewPagerItemsList.size();
+        return list.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder
     {
         ImageView image;
-        TextView recipe_header;
+        TextView recipe_header, prepare_time;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -57,6 +61,7 @@ public class ViewPagerAdapter extends RecyclerView.Adapter<ViewPagerAdapter.View
 
             image = itemView.findViewById(R.id.recipe_image);
             recipe_header = itemView.findViewById(R.id.recipe_name);
+            prepare_time = itemView.findViewById(R.id.prepare_time);
         }
     }
 }
