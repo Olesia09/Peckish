@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.peckishv2.Models.Recipe;
@@ -16,7 +17,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class ViewPagerAdapter extends RecyclerView.Adapter<ViewPagerAdapter.ViewHolder>{
+public class ViewPagerAdapter extends RecyclerView.Adapter<ViewPagerAdapter.RecipeViewHolder>{
     Context context;
     List<Recipe> list;
 
@@ -28,15 +29,15 @@ public class ViewPagerAdapter extends RecyclerView.Adapter<ViewPagerAdapter.View
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public RecipeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_viewpager, parent, false);
 
-        return new ViewHolder(v);
+        return new RecipeViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull RecipeViewHolder holder, int position) {
 
         Picasso.get().load(list.get(position).image).into(holder.image);
         holder.recipe_header.setText(list.get(position).title);
@@ -50,15 +51,17 @@ public class ViewPagerAdapter extends RecyclerView.Adapter<ViewPagerAdapter.View
         return list.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder
+    public class RecipeViewHolder extends RecyclerView.ViewHolder
     {
+        CardView viewPager_cardView;
         ImageView image;
         TextView recipe_header, prepare_time;
 
 
-        public ViewHolder(@NonNull View itemView) {
+        public RecipeViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            viewPager_cardView = itemView.findViewById(R.id.viewPager_cardView);
             image = itemView.findViewById(R.id.recipe_image);
             recipe_header = itemView.findViewById(R.id.recipe_name);
             prepare_time = itemView.findViewById(R.id.prepare_time);

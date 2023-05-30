@@ -6,5 +6,4 @@ import retrofit2.Response;
 
 public class  RecipeResponse {
     public ArrayList<Recipe> recipes;
-    public int totalResults;
 }

@@ -30,10 +30,11 @@ public class SearchRecipe extends Fragment {
     {
         View rootView = inflater.inflate(R.layout.fragment_search_recipe, container, false);
 
+        suggested_recipes = rootView.findViewById(R.id.recipe_display);
+
         manager = new RequestManager(requireContext());
         manager.getRecipe(recipeListener);
 
-        suggested_recipes = rootView.findViewById(R.id.recipe_display);
         search_recipe = rootView.findViewById(R.id.search_recipe_btn);
 
         search_recipe.setOnClickListener(view -> {
@@ -46,21 +47,20 @@ public class SearchRecipe extends Fragment {
 
     private final RecipeListener recipeListener = new RecipeListener() {
         @Override
-        public void fetch(RecipeResponse result, String message) {
+        public void didfetch(RecipeResponse result, String message) {
 
-            adapter = new ViewPagerAdapter(requireContext(), result.recipes);
-
-            suggested_recipes.setAdapter(adapter);
             suggested_recipes.setClipToPadding(false);
             suggested_recipes.setClipChildren(false);
             suggested_recipes.setOffscreenPageLimit(2);
             suggested_recipes.getChildAt(0).setOverScrollMode(View.OVER_SCROLL_NEVER);
+            adapter = new ViewPagerAdapter(requireContext(), result.recipes);
+            suggested_recipes.setAdapter(adapter);
 
         }
 
         @Override
-        public void error(String message) {
-            Toast.makeText(requireContext(),message, Toast.LENGTH_SHORT);
+        public void diderror(String message) {
+            Toast.makeText(requireContext(),message, Toast.LENGTH_SHORT).show();
         }
     };
 }

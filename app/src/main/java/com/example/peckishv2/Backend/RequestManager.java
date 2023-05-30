@@ -35,21 +35,21 @@ public class RequestManager
             public void onResponse(Call<RecipeResponse> call, Response<RecipeResponse> response) {
                 if (!response.isSuccessful())
                 {
-                    listener.error(response.message());
+                    listener.diderror(response.message());
                     return;
                 }
-                listener.fetch(response.body(), response.message());
+                listener.didfetch(response.body(), response.message());
             }
 
             @Override
             public void onFailure(Call<RecipeResponse> call, Throwable t) {
-                listener.error(t.getMessage());
+                listener.diderror(t.getMessage());
             }
         });
     }
     private interface CallRecipe
     {
-        @GET("recipes/complexSearch")
+        @GET("recipes/random")
         Call<RecipeResponse> callRecipe(
                 @Query("apiKey") String apiKey,
                 @Query("number") String number

@@ -115,6 +115,7 @@
     <string name="a_suggested_recipe">a suggested recipe</string>
     <string name="prepare_time_desc">prepare time</string>
     <string name="ingredient">ingredient</string>
+    <string name="search">Search Ingredient...</string>
 
 
 </resources>

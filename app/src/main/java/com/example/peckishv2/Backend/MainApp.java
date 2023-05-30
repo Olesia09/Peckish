@@ -12,25 +12,35 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.example.peckishv2.R;
+import com.example.peckishv2.Utils.LoginDBHelper;
 import com.example.peckishv2.databinding.ActivityMainAppBinding;
 
 public class MainApp extends AppCompatActivity {
 
     ActivityMainAppBinding binding;
-    ImageButton user_profile, preferences, about_us, change_profile, logout, help_btn, about_us_back, change_details_submit, help_back;
+    ImageButton user_profile, preferences, about_us, change_profile, logout, help_btn, change_details_submit;
     DrawerLayout drawerLayout;
     Toolbar tool_bar;
     Dialog about_us_dialog, change_profile_dialog, help_dialog;
+    EditText change_username_txt, change_password_txt, change_email_txt, confirm_current_pass_txt;
+    String newUsername, newPassword, newEmail, conform_pass;
+    LoginDBHelper dbHelper;
 
     @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        dbHelper = new LoginDBHelper(this);
 
         //binding xml to java
         binding = ActivityMainAppBinding.inflate(getLayoutInflater());
@@ -64,9 +74,12 @@ public class MainApp extends AppCompatActivity {
         change_profile = findViewById(R.id.change_profile);
         logout = findViewById(R.id.log_out);
         help_btn = findViewById(R.id.help_btn);
-        about_us_back = findViewById(R.id.about_us_return);
         change_details_submit = findViewById(R.id.change_details_btn);
-        help_back = findViewById(R.id.exit_tutorial);
+        change_username_txt = findViewById(R.id.change_username);
+        change_password_txt = findViewById(R.id.change_password);
+        change_email_txt = findViewById(R.id.change_email);
+        confirm_current_pass_txt = findViewById(R.id.confirm_current_pass);
+
 
         //setting up the custom tool bar
         setSupportActionBar(tool_bar);
@@ -87,11 +100,24 @@ public class MainApp extends AppCompatActivity {
         help_dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.dialog_box));
         help_dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
+
         //edit profile dialog
         change_profile_dialog = new Dialog(this);
         change_profile_dialog.setContentView(R.layout.dialog_change_detials);
         change_profile_dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.dialog_box_mainapp));
         change_profile_dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
+        /*change_details_submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                newEmail = change_email_txt.getText().toString();
+                newPassword = change_password_txt.getText().toString();
+                newUsername = change_username_txt.getText().toString();
+                conform_pass = confirm_current_pass_txt.getText().toString();
+
+                updateDetails(newEmail, newPassword, newUsername, conform_pass);
+            }
+        });*/
 
 
         //about us dialog
@@ -99,6 +125,21 @@ public class MainApp extends AppCompatActivity {
         about_us_dialog.setContentView(R.layout.dialog_about_us);
         about_us_dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.dialog_box_mainapp));
         about_us_dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
+       /* about_us_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                about_us_dialog.dismiss();
+            }
+        });*/
+
+        String userName = dbHelper.getUsername();
+
+        View headerView = binding.drawer.getHeaderView(0);
+
+        TextView userNameHeader = headerView.findViewById(R.id.user_name); // Replace R.id.user_name_textview with the actual ID of the view in the drawer header
+        userNameHeader.setText(userName);
+
     }
 
     //closes in case of pressing on back arrow of the system
@@ -118,5 +159,20 @@ public class MainApp extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.fragment_space,frag);
         fragmentTransaction.commit();
+    }
+
+     public void updateDetails(String email, String password, String username, String confirm_pass)
+    {
+        boolean update = dbHelper.updateDetails(username, password, email, confirm_pass);
+        if (update)
+        {
+            Toast.makeText(MainApp.this,"Details Updated", Toast.LENGTH_SHORT).show();
+
+            change_profile_dialog.dismiss();
+        }
+        else
+        {
+            Toast.makeText(MainApp.this,"Password incorrect", Toast.LENGTH_SHORT).show();
+        }
     }
 }

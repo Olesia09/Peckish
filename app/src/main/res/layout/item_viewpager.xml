@@ -25,7 +25,7 @@
             <ImageView
                 android:id="@+id/recipe_image"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="150dp"
                 android:scaleType="centerCrop" />
 
 
@@ -35,9 +35,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/recipe_image"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
+                android:layout_alignParentStart="true"
+                android:layout_margin="16dp"
+                android:layout_toStartOf="@+id/prepare_time"
                 android:text="Header"
                 android:textColor="@color/orange"
                 android:textSize="24sp" />
